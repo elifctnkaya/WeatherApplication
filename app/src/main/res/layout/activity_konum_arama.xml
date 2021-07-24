@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.KonumAramaActivity">
+
+    <Button
+        android:id="@+id/geriTusu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/geri_tusu"
+        android:onClick="geriTusuClick"
+        app:backgroundTint="#000000" />
+
+    <EditText
+        android:id="@+id/konumAl"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/geriTusu"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint="Konum giriniz.."
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/konumAra"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/konumAl"
+        android:onClick="konumAraClick"
+        android:text="SEARCH"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/konumSil"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:onClick="SilmeFonk"
+        android:layout_toRightOf="@+id/konumAra"
+        android:background="@drawable/delete"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/konumAra"
+        android:layout_marginTop="15dp"/>
+</RelativeLayout>
