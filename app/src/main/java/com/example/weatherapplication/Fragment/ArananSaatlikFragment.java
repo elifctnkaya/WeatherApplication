@@ -108,7 +108,7 @@ public class ArananSaatlikFragment extends Fragment {
             Double lon1 = Double.parseDouble(lon);
 
             try {
-                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + lat1 + "&lon=" + lon1 + "&APPID=819e2ca5a72e9dbe18a76ffb57b25673");
+                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + lat1 + "&lon=" + lon1 + "&APPID=APIKEY");
                 BufferedReader bufferedReader = null;
                 bufferedReader = new BufferedReader(new InputStreamReader(weather_url.openStream()));
                 String line = null;
@@ -136,7 +136,7 @@ public class ArananSaatlikFragment extends Fragment {
                 result_temp = (int) (temp - 273);
                 result_feels_like = (int) (feels_like - 273);
 
-                URL night_url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&APPID=819e2ca5a72e9dbe18a76ffb57b25673");
+                URL night_url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&APPID=APIKEY");
                 BufferedReader bufferedReader3 = null;
                 bufferedReader3 = new BufferedReader(new InputStreamReader(night_url.openStream()));
                 String line3 = null;
@@ -165,7 +165,7 @@ public class ArananSaatlikFragment extends Fragment {
             String result2 = "";
 
             try {
-                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=819e2ca5a72e9dbe18a76ffb57b25673");
+                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=APIKEY");
                 BufferedReader bufferedReader2 = null;
                 bufferedReader2 = new BufferedReader(new InputStreamReader(weather_url2.openStream()));
                 String line2 = null;

@@ -77,7 +77,7 @@ public class KonumAramaActivity extends AppCompatActivity {
 
             String result="";
             try {
-                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + konumAl.getText().toString() + "&APPID=819e2ca5a72e9dbe18a76ffb57b25673&lang=tr");
+                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + konumAl.getText().toString() + "&APPID=APIKEY&lang=tr");
                 BufferedReader bufferedReader = null;
                 bufferedReader = new BufferedReader(new InputStreamReader(weather_url.openStream()));
                 String line = null;
