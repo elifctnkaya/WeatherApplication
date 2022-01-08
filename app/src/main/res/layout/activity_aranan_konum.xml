@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ArananKonumActivity"
-    android:background="@drawable/back2">
+    android:background="@drawable/background">
 
 
     <Button
@@ -19,17 +19,17 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/geri_tusu"
         android:onClick="mainDonus"
-        app:backgroundTint="#000000" />
+        app:backgroundTint="#FFFFFF" />
 
     <TextView
         android:id="@+id/appBaslik"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather"
-        android:textColor="#000000"
-        android:textSize="30sp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="HAVA DURUMU"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
     <FrameLayout
         android:layout_marginTop="30dp"
@@ -38,7 +38,7 @@
         android:id="@+id/ArananSaatlikFragment"
         android:layout_width="match_parent"
         android:layout_height="235dp"
-        android:background="#ffffff"
+        android:background="@drawable/shape"
         android:layout_below="@+id/appBaslik">
 
     </FrameLayout>
@@ -51,7 +51,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_below="@+id/ArananSaatlikFragment"
-        android:background="#ffffff">
+        android:background="@drawable/shape">
 
     </FrameLayout>
 

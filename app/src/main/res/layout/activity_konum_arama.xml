@@ -5,60 +5,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Activity.KonumAramaActivity">
 
-    <Button
-        android:id="@+id/geriTusu"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/geri_tusu"
-        android:onClick="geriTusuClick"
-        app:backgroundTint="#000000" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/konumAl"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="3dp"
-        android:layout_toRightOf="@+id/geriTusu"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:hint="Konum giriniz.."
-        android:textSize="18sp"/>
+        <Button
+            android:id="@+id/geriTusu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/geri_tusu"
+            android:onClick="geriTusuClick"
+            app:backgroundTint="#FFFFFF" />
 
-    <Button
-        android:id="@+id/konumAra"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_toRightOf="@+id/konumAl"
-        android:onClick="konumAraClick"
-        android:text="SEARCH"
-        android:textSize="15sp"
-        android:textColor="#000000"
-        app:backgroundTint="#FFFFFF" />
+        <EditText
+            android:id="@+id/konumAl"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/geriTusu"
+            android:hint="Konum giriniz.."
+            android:textColor="#000000"
+            android:paddingLeft="5dp"
+            android:background="#FFFFFF"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/konumSil"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:onClick="SilmeFonk"
-        android:layout_toRightOf="@+id/konumAra"
-        android:background="@drawable/delete"/>
+        <Button
+            android:id="@+id/konumAra"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/konumAl"
+            android:layout_marginLeft="15dp"
+            android:onClick="konumAraClick"
+            app:backgroundTint="#FFFFFF"
+            android:background="@drawable/search" />
 
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/konumAra"
+        android:layout_below="@+id/linearLayout"
         android:layout_marginTop="15dp"/>
 </RelativeLayout>

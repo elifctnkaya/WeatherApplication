@@ -1,9 +1,11 @@
 package com.example.weatherapplication.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -35,7 +37,6 @@ public class KonumAramaActivity extends AppCompatActivity {
     private EditText konumAl;
     private String konum;
     private RecyclerView rv;
-    private Button konumSil;
     String konumID = "";
     private ArrayList<Konum> konumlar = new ArrayList<>();
 
@@ -46,7 +47,6 @@ public class KonumAramaActivity extends AppCompatActivity {
 
         konumAl = findViewById(R.id.konumAl);
         rv = findViewById(R.id.rv);
-        konumSil = findViewById(R.id.konumSil);
 
         konumGetir();
 
@@ -77,7 +77,7 @@ public class KonumAramaActivity extends AppCompatActivity {
 
             String result="";
             try {
-                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + konumAl.getText().toString() + "&APPID=APIKEY&lang=tr");
+                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + konumAl.getText().toString() + "&APPID=819e2ca5a72e9dbe18a76ffb57b25673&lang=tr");
                 BufferedReader bufferedReader = null;
                 bufferedReader = new BufferedReader(new InputStreamReader(weather_url.openStream()));
                 String line = null;
@@ -96,7 +96,6 @@ public class KonumAramaActivity extends AppCompatActivity {
                 intent.putExtra("lon", result_lon);
                 intent.putExtra("lat", result_lat);
                 startActivity(intent);
-
 
                 konumKaydet();
 
@@ -136,6 +135,7 @@ public class KonumAramaActivity extends AppCompatActivity {
 
         db.close();
     }
+
     View.OnClickListener onItemNoteClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -143,8 +143,19 @@ public class KonumAramaActivity extends AppCompatActivity {
             int i = viewHolder.getAdapterPosition();
             Konum item = konumlar.get(i);
 
-            konumAl.setText(item.getKonum_adi());
             konumID = item.getKonum_id();
+
+            //burası eklendi sonradan
+            AlertDialog.Builder builder = new AlertDialog.Builder(KonumAramaActivity.this);
+            builder.setTitle("Konum Silinecek");
+            builder.setMessage("Aradığınız Konum Silinsin Mi ?");
+            builder.setPositiveButton("Sil", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    konumSil();
+                }
+            });
+            builder.show();
         }
     };
 
@@ -160,10 +171,6 @@ public class KonumAramaActivity extends AppCompatActivity {
             konumGetir();
         } else
             Toast.makeText(getApplicationContext(), "Lütfen silinecek konumu seçiniz", Toast.LENGTH_SHORT).show();
-    }
-
-    public void SilmeFonk(View view){
-        konumSil();
     }
 
     public void geriTusuClick(View view){

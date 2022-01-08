@@ -246,7 +246,7 @@ public class ArananSaatlikFragment extends Fragment {
             mevcutDerece.setText(result_temp+"°");
             description.setText(result_description);
             suanDerece.setText(result_temp+"°" + " / " + result_gece_derece+"°");
-            feelsLike.setText("feels like "+result_feels_like+ "°");
+            feelsLike.setText("hissedilen "+result_feels_like+ "°");
             //mevcutIcon.setImageBitmap(bitImage);
             //mevcutIcon.setImageResource(R.drawable.clear_sky);
 

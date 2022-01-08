@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity"
-    android:background="@drawable/back2">
+    android:background="@drawable/background">
 
     <Button
         android:id="@+id/aramaButton"
@@ -17,27 +17,27 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/add"
         android:onClick="konumArama"
-        app:backgroundTint="#000000" />
+        app:backgroundTint="#FFFFFF" />
 
     <TextView
         android:id="@+id/baslik"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather"
-        android:textColor="#000000"
-        android:textSize="30sp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="HAVA DURUMU"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
     <FrameLayout
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
         android:id="@+id/saatlikFragment"
         android:layout_width="match_parent"
         android:layout_height="235dp"
-        android:background="#ffffff"
-        android:layout_below="@+id/baslik">
+        android:layout_below="@+id/baslik"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape">
 
     </FrameLayout>
 
@@ -45,11 +45,11 @@
         android:id="@+id/haftalikFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_below="@+id/saatlikFragment"
-        android:background="#ffffff">
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape">
 
     </FrameLayout>
 </RelativeLayout>

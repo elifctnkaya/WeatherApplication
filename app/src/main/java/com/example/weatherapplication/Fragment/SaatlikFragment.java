@@ -164,7 +164,7 @@ public class SaatlikFragment extends Fragment {
             String result2 = "";
 
             try {
-                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=APIKEY");
+                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=819e2ca5a72e9dbe18a76ffb57b25673");
                 BufferedReader bufferedReader2 = null;
                 bufferedReader2 = new BufferedReader(new InputStreamReader(weather_url2.openStream()));
                 String line2 = null;
@@ -175,8 +175,14 @@ public class SaatlikFragment extends Fragment {
 
                 JSONObject jsonObject2 = new JSONObject(result2);
                 JSONArray jsonArray2 = jsonObject2.getJSONArray("hourly");
+                //JSONArray jsonArrayForWeather = jsonArray2.getJSONArray(1);
+                //JSONObject item = new JSONObject();
+                //JSONArray jsonArray3 = jsonObject2.getJSONArray("weather");
                 for (int i = 1; i <24; i++) {
                     JSONObject hourly = jsonArray2.getJSONObject(i);
+                    //item = jsonArrayForWeather.getJSONObject(i);
+                    //JSONArray weather = hourly.getJSONArray("weather");
+                    //JSONObject weatherobject = weather.getJSONObject(i);
                     result_saat = hourly.getLong("dt");
                     Date date = new Date(result_saat * 1000L);
                     SimpleDateFormat saat = new SimpleDateFormat("H:mm");
@@ -190,6 +196,9 @@ public class SaatlikFragment extends Fragment {
                     Double valTemp = hourly.getDouble("temp");
                     result_saat_temp = (int) (valTemp - 273);
                     saat_derece[i] = result_saat_temp;
+
+                    /*String gorsel = item.getString("icon");
+                    System.out.println(gorsel);*/
 
                 }
             }
@@ -245,7 +254,7 @@ public class SaatlikFragment extends Fragment {
             mevcutDerece.setText(result_temp+"°");
             description.setText(result_description);
             suanDerece.setText(result_temp+"°" + " / " + result_gece_derece+"°");
-            feelsLike.setText("feels like "+result_feels_like+ "°");
+            feelsLike.setText("hissedilen "+result_feels_like+ "°");
 
 
             saatlikModelArrayList = new ArrayList<>();
