@@ -107,7 +107,7 @@ public class SaatlikFragment extends Fragment {
             String result3="";
 
             try {
-                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=APIKEY");
+                URL weather_url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + R.string.APIKEY);
                 BufferedReader bufferedReader = null;
                 bufferedReader = new BufferedReader(new InputStreamReader(weather_url.openStream()));
                 String line = null;
@@ -136,7 +136,7 @@ public class SaatlikFragment extends Fragment {
                 result_feels_like = (int) (feels_like - 273);
 
 
-                URL night_url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&APPID=APIKEY");
+                URL night_url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&APPID=" + R.string.APIKEY);
                 BufferedReader bufferedReader3 = null;
                 bufferedReader3 = new BufferedReader(new InputStreamReader(night_url.openStream()));
                 String line3 = null;
