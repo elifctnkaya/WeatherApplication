@@ -128,19 +128,19 @@ public class HaftalikFragment extends Fragment {
             for(int i=1; i<8; i++)
             {
                 if(gunAdi[i].equals("Pzt") || gunAdi[i].equals("Mon"))
-                    gunAdi[i] = "Pazartesi";
+                    gunAdi[i] = "Monday";
                 else if(gunAdi[i].equals("Sal") || gunAdi[i].equals("Tue"))
-                    gunAdi[i] = "Salı";
+                    gunAdi[i] = "Tuesday";
                 else if(gunAdi[i].equals("Çar") || gunAdi[i].equals("Wed"))
-                    gunAdi[i] = "Çarşamba";
+                    gunAdi[i] = "Wednesday";
                 else if(gunAdi[i].equals("Per") || gunAdi[i].equals("Thu"))
-                    gunAdi[i] = "Perşembe";
+                    gunAdi[i] = "Thursday";
                 else if(gunAdi[i].equals("Cum") || gunAdi[i].equals("Fri"))
-                    gunAdi[i] = "Cuma";
+                    gunAdi[i] = "Friday";
                 else if (gunAdi[i].equals("Cmt") || gunAdi[i].equals("Sat"))
-                    gunAdi[i] = "Cumartesi";
+                    gunAdi[i] = "Saturday";
                 else if (gunAdi[i].equals("Paz") || gunAdi[i].equals("Sun"))
-                    gunAdi[i] = "Pazar";
+                    gunAdi[i] = "Sunday";
 
                 String gun_derece ;
                 gun_derece = String.valueOf(derece[i]);

@@ -30,7 +30,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/geriTusu"
-            android:hint="Konum giriniz.."
+            android:hint="Enter Location.."
             android:textColor="#000000"
             android:paddingLeft="5dp"
             android:background="#FFFFFF"
