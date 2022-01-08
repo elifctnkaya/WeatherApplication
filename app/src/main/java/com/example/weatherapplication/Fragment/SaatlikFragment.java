@@ -165,7 +165,7 @@ public class SaatlikFragment extends Fragment {
             String result2 = "";
 
             try {
-                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=819e2ca5a72e9dbe18a76ffb57b25673");
+                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=" + APIKEY);
                 BufferedReader bufferedReader2 = null;
                 bufferedReader2 = new BufferedReader(new InputStreamReader(weather_url2.openStream()));
                 String line2 = null;
