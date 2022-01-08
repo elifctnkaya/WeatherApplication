@@ -77,9 +77,9 @@ public class HaftalikFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             String result2 = "";
-
+            String APIKEY = getResources().getString(R.string.APIKEY);
             try {
-                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=" + R.string.APIKEY);
+                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude&appid=" + APIKEY);
                 BufferedReader bufferedReader2 = null;
                 bufferedReader2 = new BufferedReader(new InputStreamReader(weather_url2.openStream()));
                 String line2 = null;
@@ -127,6 +127,7 @@ public class HaftalikFragment extends Fragment {
 
             for(int i=1; i<8; i++)
             {
+                System.out.println("GUNADI: " + gunAdi[i]);
                 if(gunAdi[i].equals("Pzt") || gunAdi[i].equals("Mon"))
                     gunAdi[i] = "Monday";
                 else if(gunAdi[i].equals("Sal") || gunAdi[i].equals("Tue"))
