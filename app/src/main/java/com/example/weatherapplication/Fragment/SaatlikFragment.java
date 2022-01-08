@@ -176,6 +176,7 @@ public class SaatlikFragment extends Fragment {
 
                 JSONObject jsonObject2 = new JSONObject(result2);
                 JSONArray jsonArray2 = jsonObject2.getJSONArray("hourly");
+                JSONObject jsonObjectHourly = new JSONObject();
                 //JSONArray jsonArrayForWeather = jsonArray2.getJSONArray(1);
                 //JSONObject item = new JSONObject();
                 //JSONArray jsonArray3 = jsonObject2.getJSONArray("weather");
@@ -184,6 +185,11 @@ public class SaatlikFragment extends Fragment {
                     //item = jsonArrayForWeather.getJSONObject(i);
                     //JSONArray weather = hourly.getJSONArray("weather");
                     //JSONObject weatherobject = weather.getJSONObject(i);
+                    JSONArray weatherArray = hourly.getJSONArray("weather");
+                    System.out.println("Weather Array:: " + weatherArray);
+                    JSONObject weatherObject = weatherArray.getJSONObject(0);
+                    System.out.println("Weather Object:: " + weatherObject);
+                    System.out.println("ICONS:: " + weatherObject.getString("icon"));
                     result_saat = hourly.getLong("dt");
                     Date date = new Date(result_saat * 1000L);
                     SimpleDateFormat saat = new SimpleDateFormat("H:mm");
