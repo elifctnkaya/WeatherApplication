@@ -82,7 +82,7 @@ public class ArananHaftalikFragment extends Fragment {
             Double lon1 = Double.parseDouble(lon);
 
             try {
-                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat1 + "&lon=" + lon1 + "&exclude&appid=APIKEY");
+                URL weather_url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat1 + "&lon=" + lon1 + "&exclude&appid=" + R.string.APIKEY);
                 BufferedReader bufferedReader2 = null;
                 bufferedReader2 = new BufferedReader(new InputStreamReader(weather_url2.openStream()));
                 String line2 = null;
