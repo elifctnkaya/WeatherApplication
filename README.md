@@ -1,1 +1,2 @@
 # WeatherApplication
+ <img width="150" alt="0_izin_ekranı" src="https://user-images.githubusercontent.com/57728209/142364325-3c4e4457-2a89-4908-a286-26070ff62890.png"> <img width="150" alt="3_aranan_konum_2" src="https://user-images.githubusercontent.com/57728209/142364146-fd263b83-7f31-4aae-a466-983541763754.png"> <img width="150" alt="2_konum_arama" src="https://user-images.githubusercontent.com/57728209/142364376-a02371e0-d5c2-4bba-b5c8-ddfe33b58d27.png">
