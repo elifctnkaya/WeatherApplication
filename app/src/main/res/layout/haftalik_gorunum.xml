@@ -7,7 +7,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp">
+            android:layout_height="45dp">
 
                 <TextView
                     android:id="@+id/haftalikGunIsmi"
@@ -44,10 +44,9 @@
 
                         <ImageView
                             android:id="@+id/haftalikGorsel"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="5dp"
-                            android:background="@drawable/back2" />
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"/>
                 </LinearLayout>
 
 

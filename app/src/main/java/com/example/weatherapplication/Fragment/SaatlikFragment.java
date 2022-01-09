@@ -90,6 +90,7 @@ public class SaatlikFragment extends Fragment {
         String result_city;
         String result_icon="";
         String result_description;
+        String hourly_icon="";
 
         long result_saat;
         int result_saat_temp;
@@ -185,11 +186,15 @@ public class SaatlikFragment extends Fragment {
                     //item = jsonArrayForWeather.getJSONObject(i);
                     //JSONArray weather = hourly.getJSONArray("weather");
                     //JSONObject weatherobject = weather.getJSONObject(i);
+
                     JSONArray weatherArray = hourly.getJSONArray("weather");
                     System.out.println("Weather Array:: " + weatherArray);
                     JSONObject weatherObject = weatherArray.getJSONObject(0);
                     System.out.println("Weather Object:: " + weatherObject);
                     System.out.println("ICONS:: " + weatherObject.getString("icon"));
+                    hourly_icon = weatherObject.getString("icon");
+
+
                     result_saat = hourly.getLong("dt");
                     Date date = new Date(result_saat * 1000L);
                     SimpleDateFormat saat = new SimpleDateFormat("H:mm");
@@ -203,9 +208,6 @@ public class SaatlikFragment extends Fragment {
                     Double valTemp = hourly.getDouble("temp");
                     result_saat_temp = (int) (valTemp - 273);
                     saat_derece[i] = result_saat_temp;
-
-                    /*String gorsel = item.getString("icon");
-                    System.out.println(gorsel);*/
 
                 }
             }
@@ -257,11 +259,51 @@ public class SaatlikFragment extends Fragment {
             else if (result_icon.equals("50n"))
                 mevcutIcon.setImageResource(R.drawable.mist);
 
+            String icon = null;
+
+            if(hourly_icon.equals("01d"))
+                icon = "clear_sky";
+            else if(hourly_icon.equals("02d"))
+                icon = "few_clouds";
+            else if(hourly_icon.equals("03d"))
+                icon = "scattered_clouds";
+            else if(hourly_icon.equals("04d"))
+                icon = "broken_clouds";
+            else if(hourly_icon.equals("09d"))
+                icon = "shower_rain";
+            else if(hourly_icon.equals("10d"))
+                icon = "rain";
+            else if(hourly_icon.equals("11d"))
+                icon = "thunderstorm";
+            else if(hourly_icon.equals("13d"))
+                icon = "snow";
+            else if(hourly_icon.equals("50d"))
+                icon = "mist";
+            else if(hourly_icon.equals("01n"))
+                icon = "clear_sky_night";
+            else if(hourly_icon.equals("02n"))
+                icon = "few_clouds_night";
+            else if(hourly_icon.equals("03n"))
+                icon = "scattered_clouds_night";
+            else if (hourly_icon.equals("04n"))
+                icon = "broken_clouds_night";
+            else if(hourly_icon.equals("09n"))
+                icon = "shower_rain";
+            else if(hourly_icon.equals("10n"))
+                icon = "rain";
+            else if(hourly_icon.equals("11n"))
+                icon = "thunderstorm";
+            else if(hourly_icon.equals("13n"))
+                icon = "snow";
+            else if (hourly_icon.equals("50n"))
+                icon = "mist";
+
+
             konumAdi.setText(result_city);
             mevcutDerece.setText(result_temp+"°");
             description.setText(result_description);
             suanDerece.setText(result_temp+"°" + " / " + result_gece_derece+"°");
-            feelsLike.setText("hissedilen "+result_feels_like+ "°");
+            feelsLike.setText("feels like: "+result_feels_like+ "°");
 
 
             saatlikModelArrayList = new ArrayList<>();
@@ -275,19 +317,7 @@ public class SaatlikFragment extends Fragment {
                 String pop;
                 pop = String.valueOf(saat_pop[i]);
 
-                String gorsel = null;
-
-                if (saat_derece[i] < 0){
-                    gorsel = "karli";
-                } else if (saat_derece[i] <= 15) {
-                    gorsel = "bulutlu";
-                }else if(saat_derece[i]<=22){
-                    gorsel = "gunesli_bulutlu";
-                }else if(saat_derece[i]<=38){
-                    gorsel = "gunesli";
-                }
-
-                SaatlikModel s1 = new SaatlikModel(1,saat,gorsel,saatlik_derece+"°",pop+"%");
+                SaatlikModel s1 = new SaatlikModel(1,saat,icon,saatlik_derece+"°",pop+"%");
                 saatlikModelArrayList.add(s1);
             }
 

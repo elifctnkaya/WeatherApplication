@@ -88,6 +88,7 @@ public class ArananSaatlikFragment extends Fragment {
         String result_city;
         String result_icon="";
         String result_description;
+        String hourly_icon;
 
         long result_saat;
         int result_saat_temp;
@@ -179,6 +180,12 @@ public class ArananSaatlikFragment extends Fragment {
                 JSONArray jsonArray2 = jsonObject2.getJSONArray("hourly");
                 for (int i = 1; i <24; i++) {
                     JSONObject hourly = jsonArray2.getJSONObject(i);
+
+                    JSONArray weatherArray = hourly.getJSONArray("weather");
+                    JSONObject weatherObject = weatherArray.getJSONObject(0);
+                    hourly_icon = weatherObject.getString("icon");
+
+
                     result_saat = hourly.getLong("dt");
                     Date date = new Date(result_saat * 1000L);
                     SimpleDateFormat saat = new SimpleDateFormat("H:mm");
@@ -243,6 +250,45 @@ public class ArananSaatlikFragment extends Fragment {
             else if (result_icon.equals("50n"))
                 mevcutIcon.setImageResource(R.drawable.mist);
 
+            String icon = null;
+
+            if(hourly_icon.equals("01d"))
+                icon = "clear_sky";
+            else if(hourly_icon.equals("02d"))
+                icon = "few_clouds";
+            else if(hourly_icon.equals("03d"))
+                icon = "scattered_clouds";
+            else if(hourly_icon.equals("04d"))
+                icon = "broken_clouds";
+            else if(hourly_icon.equals("09d"))
+                icon = "shower_rain";
+            else if(hourly_icon.equals("10d"))
+                icon = "rain";
+            else if(hourly_icon.equals("11d"))
+                icon = "thunderstorm";
+            else if(hourly_icon.equals("13d"))
+                icon = "snow";
+            else if(hourly_icon.equals("50d"))
+                icon = "mist";
+            else if(hourly_icon.equals("01n"))
+                icon = "clear_sky_night";
+            else if(hourly_icon.equals("02n"))
+                icon = "few_clouds_night";
+            else if(hourly_icon.equals("03n"))
+                icon = "scattered_clouds_night";
+            else if (hourly_icon.equals("04n"))
+                icon = "broken_clouds_night";
+            else if(hourly_icon.equals("09n"))
+                icon = "shower_rain";
+            else if(hourly_icon.equals("10n"))
+                icon = "rain";
+            else if(hourly_icon.equals("11n"))
+                icon = "thunderstorm";
+            else if(hourly_icon.equals("13n"))
+                icon = "snow";
+            else if (hourly_icon.equals("50n"))
+                icon = "mist";
+
             konumAdi.setText(result_city);
             mevcutDerece.setText(result_temp+"°");
             description.setText(result_description);
@@ -262,19 +308,7 @@ public class ArananSaatlikFragment extends Fragment {
                 String pop;
                 pop = String.valueOf(saat_pop[i]);
 
-                String gorsel= null;
-
-                if (saat_derece[i] < 0){
-                    gorsel = "karli";
-                } else if (saat_derece[i] <= 15) {
-                    gorsel = "bulutlu";
-                }else if(saat_derece[i]<=22){
-                    gorsel = "gunesli_bulutlu";
-                }else if(saat_derece[i]<=38){
-                    gorsel = "gunesli";
-                }
-
-                SaatlikModel s1 = new SaatlikModel(1,saat,gorsel,saatlik_derece+"°",pop+"%");
+                SaatlikModel s1 = new SaatlikModel(1,saat,icon,saatlik_derece+"°",pop+"%");
                 saatlikModelArrayList.add(s1);
             }
 

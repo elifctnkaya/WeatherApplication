@@ -67,7 +67,7 @@ public class HaftalikFragment extends Fragment {
         long result_gun;
         int result_gece_temp;
         Double result_pop;
-        String result_icon;
+        String daily_icon;
         String [] gunAdi = new String[8];
         int [] derece = new int[8];
         int [] gece_derece = new int[8];
@@ -92,6 +92,11 @@ public class HaftalikFragment extends Fragment {
                 JSONArray jsonArray2 = jsonObject2.getJSONArray("daily");
                 for (int i = 1; i < 8; i++) {
                     JSONObject daily = jsonArray2.getJSONObject(i);
+
+                    JSONArray weatherArray = daily.getJSONArray("weather");
+                    JSONObject weatherObject = weatherArray.getJSONObject(0);
+                    daily_icon = weatherObject.getString("icon");
+
                     result_gun = daily.getLong("dt");
                     Date date = new Date(result_gun * 1000L);
                     SimpleDateFormat gun = new SimpleDateFormat("E");
@@ -123,6 +128,45 @@ public class HaftalikFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
 
+            String icon = null;
+
+            if(daily_icon.equals("01d"))
+                icon = "clear_sky";
+            else if(daily_icon.equals("02d"))
+                icon = "few_clouds";
+            else if(daily_icon.equals("03d"))
+                icon = "scattered_clouds";
+            else if(daily_icon.equals("04d"))
+                icon = "broken_clouds";
+            else if(daily_icon.equals("09d"))
+                icon = "shower_rain";
+            else if(daily_icon.equals("10d"))
+                icon = "rain";
+            else if(daily_icon.equals("11d"))
+                icon = "thunderstorm";
+            else if(daily_icon.equals("13d"))
+                icon = "snow";
+            else if(daily_icon.equals("50d"))
+                icon = "mist";
+            else if(daily_icon.equals("01n"))
+                icon = "clear_sky_night";
+            else if(daily_icon.equals("02n"))
+                icon = "few_clouds_night";
+            else if(daily_icon.equals("03n"))
+                icon = "scattered_clouds_night";
+            else if (daily_icon.equals("04n"))
+                icon = "broken_clouds_night";
+            else if(daily_icon.equals("09n"))
+                icon = "shower_rain";
+            else if(daily_icon.equals("10n"))
+                icon = "rain";
+            else if(daily_icon.equals("11n"))
+                icon = "thunderstorm";
+            else if(daily_icon.equals("13n"))
+                icon = "snow";
+            else if (daily_icon.equals("50n"))
+                icon = "mist";
+
             havadurumuList = new ArrayList<>();
 
             for(int i=1; i<8; i++)
@@ -149,20 +193,8 @@ public class HaftalikFragment extends Fragment {
                 night_derece = String.valueOf(gece_derece[i]);
                 String yagis_orani;
                 yagis_orani = String.valueOf(pop[i]);
-
-                String gorsel = null;
                 
-                if (derece[i] < 0){
-                    gorsel = "karli";
-                } else if (derece[i] <= 15) {
-                    gorsel = "bulutlu";
-                }else if(derece[i]<=22){
-                    gorsel = "gunesli_bulutlu";
-                }else if(derece[i]<=38){
-                    gorsel = "gunesli";
-                }
-                
-                HaftalikModel h1 = new HaftalikModel(1,gorsel,gunAdi[i], yagis_orani+"%", gun_derece+"°"+" / "+night_derece+"°");
+                HaftalikModel h1 = new HaftalikModel(1,icon,gunAdi[i], yagis_orani+"%", gun_derece+"°"+" / "+night_derece+"°");
                 havadurumuList.add(h1);
             }
 
