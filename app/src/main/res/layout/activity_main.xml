@@ -11,13 +11,11 @@
         android:id="@+id/aramaButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="370dp"
         android:background="@drawable/add"
         android:onClick="konumArama"
-        app:backgroundTint="#FFFFFF" />
+        app:backgroundTint="#FFFFFF"/>
 
     <TextView
         android:id="@+id/baslik"

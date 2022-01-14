@@ -32,14 +32,14 @@
         android:textSize="30sp" />
 
     <FrameLayout
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
         android:id="@+id/ArananSaatlikFragment"
         android:layout_width="match_parent"
         android:layout_height="235dp"
-        android:background="@drawable/shape"
-        android:layout_below="@+id/appBaslik">
+        android:layout_below="@+id/appBaslik"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape">
 
     </FrameLayout>
 
@@ -47,12 +47,11 @@
         android:id="@+id/ArananHaftalikFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_below="@+id/ArananSaatlikFragment"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/shape">
 
     </FrameLayout>
-
 </RelativeLayout>
